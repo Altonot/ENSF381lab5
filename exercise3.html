@@ -35,14 +35,14 @@
     purpleButton.addEventListener('click', () => {
         label.style.color= "purple";
     });
-    labelInput.addEventListener('keydown', function(event) {
+    labelInput.addEventListener('keydown', async function(event) {
         if (event.keyCode == 13) {
-            let x = retrieveData();
+            let x = await retrieveData();
             let checkUser = 0;
             for (let i = 0; i < x.length; i++) {
-                let {id, name, group} = x[i];
+                let {first_name, user_group, id} = x[i];
                 if(id == labelInput.value) {
-                    label.textContent = "ID: " + id + ", Name: " + name + ", Group: " + group + ".";
+                    label.textContent = "ID: " + id + ", Name: " + first_name + ", Group: " + user_group + ".";
                     checkUser = 1;
                     break;
                 }
